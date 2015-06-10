@@ -1,0 +1,22 @@
+{
+  "name": "Redmart price per kilo",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Because it's the only way to compare prices",
+  "homepage_url": "https://github.com/lologhi/redmart-per-kilo",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://redmart.com/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ]
+}
