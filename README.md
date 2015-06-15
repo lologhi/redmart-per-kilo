@@ -14,4 +14,5 @@ And it assumes that the weight is in grams. So not working for volumes, or weigh
 
 # Releases:
 
-- f79864c2af93efdb19f87110638c253ea21a5364: First try
+- 2015-06-15: 50e4a45564b3ca2987e11e5a271451aaac509d44 Manage weights like "8 x 50g"
+- 2015-06-11: f79864c2af93efdb19f87110638c253ea21a5364 First try
