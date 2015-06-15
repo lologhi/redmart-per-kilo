@@ -1,9 +1,26 @@
 function addPrice(product)
 {
     var description = product.getElementsByClassName('description')[0];
-    var price = product.getElementsByClassName('price')[0].getElementsByTagName('span')[0].textContent;
-    var size = product.getElementsByClassName('size')[0].textContent;
-    var pricePerKilo = price.replace("$", "")/size.replace(" g", "") * 1000;
+
+    var priceSpan = product.getElementsByClassName('price')[0].getElementsByTagName('span')[0].textContent;
+    var price = priceSpan.replace("$", "");
+
+    var sizeSpan = product.getElementsByClassName('size')[0].textContent;
+    if (sizeSpan.indexOf('x') > -1) {
+        var total = 1;
+        for (var i = 0; i < sizeSpan.split(' x ').length; i++) {
+            elem = sizeSpan.split(' x ')[i];
+            if (elem.indexOf('g') > -1) {
+                elem = elem.replace(" g", "");
+            }
+            total *= elem;
+        }
+    } else {
+        var total = sizeSpan.replace(" g", "");
+    }
+    var sizeInKilo = total / 1000;
+
+    var pricePerKilo = price/sizeInKilo;
     description.innerHTML += "$"+ pricePerKilo.toFixed(2) +" /kg";
 }
 
@@ -16,7 +33,7 @@ chrome.extension.sendMessage({}, function(response) {
             if (document.getElementsByClassName("productShelf")) {
                 var productShelf = document.getElementsByClassName("productShelf")[0];
                 var products = productShelf.querySelectorAll('li.product');
-                for (var i=0; i<=products.length; i++) {
+                for (var i = 0; i < products.length; i++) {
                     addPrice(products[i]);
                 }
             }
