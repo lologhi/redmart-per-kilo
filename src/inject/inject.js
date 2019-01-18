@@ -2,7 +2,7 @@ function addPrice(product)
 {
     var description = product.getElementsByClassName('description')[0];
 
-    var priceSpan = product.getElementsByClassName('price')[0].getElementsByTagName('span')[0].textContent;
+    var priceSpan = product.querySelector('[itemprop=price]').textContent;
     var price = priceSpan.replace("$", "");
 
     var sizeSpan = product.getElementsByClassName('size')[0].textContent;
@@ -32,7 +32,7 @@ chrome.extension.sendMessage({}, function(response) {
         setTimeout(function () {
             if (document.getElementsByClassName("productShelf")) {
                 var productShelf = document.getElementsByClassName("productShelf")[0];
-                var products = productShelf.querySelectorAll('li.product');
+                var products = productShelf.querySelectorAll('li');
                 for (var i = 0; i < products.length; i++) {
                     addPrice(products[i]);
                 }
