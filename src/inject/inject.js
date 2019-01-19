@@ -24,7 +24,7 @@ function addPrice(product)
     description.innerHTML += "$"+ pricePerKilo.toFixed(2) +" /kg";
 }
 
-chrome.extension.sendMessage({}, function(response) {
+chrome.runtime.sendMessage({}, function(response) {
 	var readyStateCheckInterval = setInterval(function() {
 	if (document.readyState === "complete") {
 		clearInterval(readyStateCheckInterval);
