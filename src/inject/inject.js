@@ -22,7 +22,14 @@ function getOfferPricePerItem(str, price){
 	// output the price per item
 	var quantity = 1;
 	var strList = str.split(" ");
-	if ((strList.length == 4) & (!isNaN(Number(strList[1])))){
+	
+	// Check if offer string has exactly four words. Otherwise exit function.
+	if (strList.length !== 4){
+		return (price/quantity)
+	}
+	
+	// checks for legitimate numbers, prices, and percentages.
+	if ((!isNaN(Number(strList[1]))) & (strList[3].indexOf("$") !== -1 | strList[3].indexOf("%") !== -1)){
 		var quantity = strList[1];
 		
 		if (strList[2].toLowerCase().indexOf('for') !== -1){
