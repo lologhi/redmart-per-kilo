@@ -1,10 +1,10 @@
 {
   "name": "Redmart price per kilo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "manifest_version": 2,
   "description": "Because it's the only way to compare prices",
   "permissions": ["activeTab", "declarativeContent", "*://*/*"],
-  "homepage_url": "https://github.com/lihweilihwei/redmart-per-kilo",
+  "homepage_url": "https://github.com/lologhi/redmart-per-kilo",
   "background": {
 	"scripts": ["background.js"],
     "persistent": true
