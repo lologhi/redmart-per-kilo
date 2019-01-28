@@ -16,7 +16,7 @@ The extension handles the units g, kg, mL, L, and "per pack", and multi-buy offe
 
 # Releases:
 
+- 2019-01-27: 
 - 2015-06-16: 382d407 Add the packaged extension
 - 2015-06-15: 50e4a45 Manage weights like "8 x 50g"
 - 2015-06-11: f79864c First try
-- 2019-01-27: 
